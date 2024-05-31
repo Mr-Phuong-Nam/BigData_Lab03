@@ -59,6 +59,7 @@ class StreamingSimulator:
         streamingInputDF = self.read_stream()
         query = self.query(streamingInputDF)
         query.awaitTermination(60)
+        query.stop()
 
 # Usage example
 if __name__ == "__main__":
