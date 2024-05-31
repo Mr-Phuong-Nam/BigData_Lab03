@@ -32,6 +32,7 @@ class EventCountStreaming(StreamingSimulator):
             .writeStream
             .outputMode("append")
             .foreachBatch(self.foreach_batch_function)
+            # .format("console")
             .start()
         )
         return query
