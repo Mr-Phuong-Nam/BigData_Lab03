@@ -28,6 +28,7 @@ class StreamingSimulator:
                                   .appName(self.app_name)\
                                   .config("spark.some.config.option", self.config_option)\
                                   .getOrCreate()
+        self.spark.sparkContext.setLogLevel("FATAL")
         self.spark.conf.set("spark.sql.shuffle.partitions", self.shuffle_partitions)
 
     def define_schema(self):
