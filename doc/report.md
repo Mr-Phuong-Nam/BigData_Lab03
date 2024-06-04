@@ -40,3 +40,38 @@ Thực hiện overwriting hàm `query` của chương trình Task_1_StreamSimula
 <image src="./images/nam/image copy 7.png" width="700">
 - Output từ folder: 
 <image src="./images/nam/image copy 8.png" width="700">
+
+## 4. Chương trình Task_3_RegionEventCount
+Chương trình này hoàn toàn tương tự như chương trình [EventCount](#3-chương-trình-task_2_eventcount) đã trình bày ở trên. Điểm khác biệt duy nhất đó là việc thêm filter để lọc ra dữ liệu mong muốn.
+
+Để làm được việc này, nhóm đã thực hiên như sau:
+
+**Xác định giới hạn cho từng vùng**: Từ bounding box đã cho có thể xác định được $x_{min}, x_{max}, y_{min}, y_{max}$ với $x$ là kinh độ và $y$ là vĩ độ.
+
+**Xác định vùng trả khách của từng records**:
+
+Gọi $x, y$ lần lượt là kinh độ và vĩ độ của nơi trả khách. Điểm đó thuộc một vùng khi:
+
+<!-- $(x^{i}_{min} \leq x \leq  x^{i}_{max}) \wedge (y^{i}_{min} \leq y \leq y^{i}_{max})$ với $i \in \{'goldman', 'citigroup'\}$ -->
+
+$(x^{r}_{min} \leq x \leq  x^{r}_{max}) \wedge (y^{r}_{min} \leq y \leq y^{r}_{max})$
+
+Với các vùng $r \in \{'goldman', 'citigroup'\}$
+
+Các điểm không thuộc 2 vùng trên được ghi nhận là $'other'$.
+
+**Tạo một cột tên `headquarter` để ghi nhận lại kết quả**: Với mỗi records, các cột `col_1`, `col_9`, `col_10`, `col_11`, `col_12` được cho vào hàm `in_region` để xác định vùng trả khách. Trong hàm này, cột `col_1` cho biết loại xe từ đó có thể xác định các thuộc tính khác dựa vào schema.
+- Với loại xe màu vàng: `x` là cột `col_11` và  `y` là cột `col_12`.
+- Với loại xe màu xanh: `x` là cột `col_9` và  `y` là cột `col_10`.
+
+Hàm `in_region` trả về tên vùng hoặc `other` nếu không thuộc 2 vùng cho trước.
+
+**Thêm `headquarter` vào groupBy**: Ngoài groupBy theo giờ, ta cần đếm số lượng trả khách tại vùng đó, vì vậy cần thêm `headquarter` vào.
+
+Ngoài ra, phần output cũng được đổi thành loại file `csv` cho phù hợp với yêu cầu đề bài.
+
+Phần còn lại của chương trình tương tự như [EventCount](#3-chương-trình-task_2_eventcount).
+
+**Output từ console**
+
+<image src='./images/Phuc/1.png' width='500'>
