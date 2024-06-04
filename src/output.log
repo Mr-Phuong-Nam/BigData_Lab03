@@ -1,0 +1,222 @@
+24/06/04 21:28:36 WARN Utils: Your hostname, KimTrinhPC resolves to a loopback address: 127.0.1.1; using 172.30.241.155 instead (on interface eth0)
+24/06/04 21:28:36 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+24/06/04 21:28:38 INFO SparkContext: Running Spark version 3.5.1
+24/06/04 21:28:38 INFO SparkContext: OS info Linux, 5.15.146.1-microsoft-standard-WSL2, amd64
+24/06/04 21:28:38 INFO SparkContext: Java version 1.8.0_402
+24/06/04 21:28:38 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/06/04 21:28:38 INFO ResourceUtils: ==============================================================
+24/06/04 21:28:38 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/06/04 21:28:38 INFO ResourceUtils: ==============================================================
+24/06/04 21:28:38 INFO SparkContext: Submitted application: Trending Arrivals
+24/06/04 21:28:38 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/06/04 21:28:38 INFO ResourceProfile: Limiting resource is cpu
+24/06/04 21:28:38 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/06/04 21:28:38 INFO SecurityManager: Changing view acls to: s21120580
+24/06/04 21:28:38 INFO SecurityManager: Changing modify acls to: s21120580
+24/06/04 21:28:38 INFO SecurityManager: Changing view acls groups to: 
+24/06/04 21:28:38 INFO SecurityManager: Changing modify acls groups to: 
+24/06/04 21:28:38 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: s21120580; groups with view permissions: EMPTY; users with modify permissions: s21120580; groups with modify permissions: EMPTY
+24/06/04 21:28:39 INFO Utils: Successfully started service 'sparkDriver' on port 34409.
+24/06/04 21:28:39 INFO SparkEnv: Registering MapOutputTracker
+24/06/04 21:28:39 INFO SparkEnv: Registering BlockManagerMaster
+24/06/04 21:28:39 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/06/04 21:28:39 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/06/04 21:28:39 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/06/04 21:28:39 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-0fd0dc02-d78f-475b-8a0e-9d84580a83ff
+24/06/04 21:28:39 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
+24/06/04 21:28:39 INFO SparkEnv: Registering OutputCommitCoordinator
+24/06/04 21:28:39 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/06/04 21:28:39 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/06/04 21:28:39 INFO Executor: Starting executor ID driver on host 172.30.241.155
+24/06/04 21:28:39 INFO Executor: OS info Linux, 5.15.146.1-microsoft-standard-WSL2, amd64
+24/06/04 21:28:39 INFO Executor: Java version 1.8.0_402
+24/06/04 21:28:39 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+24/06/04 21:28:39 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@450c0760 for default.
+24/06/04 21:28:39 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36049.
+24/06/04 21:28:39 INFO NettyBlockTransferService: Server created on 172.30.241.155:36049
+24/06/04 21:28:39 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/06/04 21:28:39 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 172.30.241.155, 36049, None)
+24/06/04 21:28:39 INFO BlockManagerMasterEndpoint: Registering block manager 172.30.241.155:36049 with 366.3 MiB RAM, BlockManagerId(driver, 172.30.241.155, 36049, None)
+24/06/04 21:28:39 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 172.30.241.155, 36049, None)
+24/06/04 21:28:39 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 172.30.241.155, 36049, None)
+====================================Received batch: 0 ================================
+====================================Received batch: 1 ================================
+Last time in this batch:  2015-12-01 00:10:00
+====================================Received batch: 2 ================================
+Last time in this batch:  2015-12-01 01:10:00
+====================================Received batch: 3 ================================
+Last time in this batch:  2015-12-01 02:10:00
+====================================Received batch: 4 ================================
+Last time in this batch:  2015-12-01 03:10:00
+====================================Received batch: 5 ================================
+Last time in this batch:  2015-12-01 04:10:00
+====================================Received batch: 6 ================================
+Last time in this batch:  2015-12-01 05:10:00
+====================================Received batch: 7 ================================
+Last time in this batch:  2015-12-01 06:10:00
+====================================Received batch: 8 ================================
+Last time in this batch:  2015-12-01 07:10:00
+====================================Received batch: 9 ================================
+Last time in this batch:  2015-12-01 08:10:00
+24/06/04 21:29:51 WARN Utils: Your hostname, KimTrinhPC resolves to a loopback address: 127.0.1.1; using 172.30.241.155 instead (on interface eth0)
+24/06/04 21:29:51 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+24/06/04 21:29:53 INFO SparkContext: Running Spark version 3.5.1
+24/06/04 21:29:53 INFO SparkContext: OS info Linux, 5.15.146.1-microsoft-standard-WSL2, amd64
+24/06/04 21:29:53 INFO SparkContext: Java version 1.8.0_402
+24/06/04 21:29:53 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/06/04 21:29:53 INFO ResourceUtils: ==============================================================
+24/06/04 21:29:53 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/06/04 21:29:53 INFO ResourceUtils: ==============================================================
+24/06/04 21:29:53 INFO SparkContext: Submitted application: Trending Arrivals
+24/06/04 21:29:53 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/06/04 21:29:53 INFO ResourceProfile: Limiting resource is cpu
+24/06/04 21:29:53 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/06/04 21:29:53 INFO SecurityManager: Changing view acls to: s21120580
+24/06/04 21:29:53 INFO SecurityManager: Changing modify acls to: s21120580
+24/06/04 21:29:53 INFO SecurityManager: Changing view acls groups to: 
+24/06/04 21:29:53 INFO SecurityManager: Changing modify acls groups to: 
+24/06/04 21:29:53 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: s21120580; groups with view permissions: EMPTY; users with modify permissions: s21120580; groups with modify permissions: EMPTY
+24/06/04 21:29:53 INFO Utils: Successfully started service 'sparkDriver' on port 35795.
+24/06/04 21:29:53 INFO SparkEnv: Registering MapOutputTracker
+24/06/04 21:29:53 INFO SparkEnv: Registering BlockManagerMaster
+24/06/04 21:29:53 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/06/04 21:29:53 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/06/04 21:29:53 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/06/04 21:29:53 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-cf7b7f32-3139-4b72-8622-453d093b98da
+24/06/04 21:29:53 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
+24/06/04 21:29:53 INFO SparkEnv: Registering OutputCommitCoordinator
+24/06/04 21:29:54 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/06/04 21:29:54 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/06/04 21:29:54 INFO Executor: Starting executor ID driver on host 172.30.241.155
+24/06/04 21:29:54 INFO Executor: OS info Linux, 5.15.146.1-microsoft-standard-WSL2, amd64
+24/06/04 21:29:54 INFO Executor: Java version 1.8.0_402
+24/06/04 21:29:54 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+24/06/04 21:29:54 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@60533f21 for default.
+24/06/04 21:29:54 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37773.
+24/06/04 21:29:54 INFO NettyBlockTransferService: Server created on 172.30.241.155:37773
+24/06/04 21:29:54 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/06/04 21:29:54 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 172.30.241.155, 37773, None)
+24/06/04 21:29:54 INFO BlockManagerMasterEndpoint: Registering block manager 172.30.241.155:37773 with 366.3 MiB RAM, BlockManagerId(driver, 172.30.241.155, 37773, None)
+24/06/04 21:29:54 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 172.30.241.155, 37773, None)
+24/06/04 21:29:54 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 172.30.241.155, 37773, None)
+====================================Received batch: 9 ================================
+Last time in this batch:  2015-12-01 08:10:00
+====================================Received batch: 10 ================================
+Last time in this batch:  2015-12-01 09:10:00
+The number of arrivals to Goldman Sachs has doubled from 5 to 15 at 1448934600!
+====================================Received batch: 11 ================================
+Last time in this batch:  2015-12-01 10:10:00
+====================================Received batch: 12 ================================
+Last time in this batch:  2015-12-01 11:10:00
+====================================Received batch: 13 ================================
+Last time in this batch:  2015-12-01 12:10:00
+====================================Received batch: 14 ================================
+Last time in this batch:  2015-12-01 13:10:00
+====================================Received batch: 15 ================================
+Last time in this batch:  2015-12-01 14:10:00
+The number of arrivals to Goldman Sachs has doubled from 3 to 12 at 1448953200!
+24/06/04 21:31:41 WARN Utils: Your hostname, KimTrinhPC resolves to a loopback address: 127.0.1.1; using 172.30.241.155 instead (on interface eth0)
+24/06/04 21:31:41 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+24/06/04 21:31:43 INFO SparkContext: Running Spark version 3.5.1
+24/06/04 21:31:43 INFO SparkContext: OS info Linux, 5.15.146.1-microsoft-standard-WSL2, amd64
+24/06/04 21:31:43 INFO SparkContext: Java version 1.8.0_402
+24/06/04 21:31:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/06/04 21:31:43 INFO ResourceUtils: ==============================================================
+24/06/04 21:31:43 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/06/04 21:31:43 INFO ResourceUtils: ==============================================================
+24/06/04 21:31:43 INFO SparkContext: Submitted application: Trending Arrivals
+24/06/04 21:31:43 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/06/04 21:31:43 INFO ResourceProfile: Limiting resource is cpu
+24/06/04 21:31:43 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/06/04 21:31:43 INFO SecurityManager: Changing view acls to: s21120580
+24/06/04 21:31:43 INFO SecurityManager: Changing modify acls to: s21120580
+24/06/04 21:31:43 INFO SecurityManager: Changing view acls groups to: 
+24/06/04 21:31:43 INFO SecurityManager: Changing modify acls groups to: 
+24/06/04 21:31:43 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: s21120580; groups with view permissions: EMPTY; users with modify permissions: s21120580; groups with modify permissions: EMPTY
+24/06/04 21:31:43 INFO Utils: Successfully started service 'sparkDriver' on port 37751.
+24/06/04 21:31:43 INFO SparkEnv: Registering MapOutputTracker
+24/06/04 21:31:43 INFO SparkEnv: Registering BlockManagerMaster
+24/06/04 21:31:44 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/06/04 21:31:44 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/06/04 21:31:44 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/06/04 21:31:44 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-c0846865-e5f9-4397-bdcb-dc694b3324f9
+24/06/04 21:31:44 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
+24/06/04 21:31:44 INFO SparkEnv: Registering OutputCommitCoordinator
+24/06/04 21:31:44 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/06/04 21:31:44 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/06/04 21:31:44 INFO Executor: Starting executor ID driver on host 172.30.241.155
+24/06/04 21:31:44 INFO Executor: OS info Linux, 5.15.146.1-microsoft-standard-WSL2, amd64
+24/06/04 21:31:44 INFO Executor: Java version 1.8.0_402
+24/06/04 21:31:44 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+24/06/04 21:31:44 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@4dda8c96 for default.
+24/06/04 21:31:44 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44567.
+24/06/04 21:31:44 INFO NettyBlockTransferService: Server created on 172.30.241.155:44567
+24/06/04 21:31:44 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/06/04 21:31:44 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 172.30.241.155, 44567, None)
+24/06/04 21:31:44 INFO BlockManagerMasterEndpoint: Registering block manager 172.30.241.155:44567 with 366.3 MiB RAM, BlockManagerId(driver, 172.30.241.155, 44567, None)
+24/06/04 21:31:44 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 172.30.241.155, 44567, None)
+24/06/04 21:31:44 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 172.30.241.155, 44567, None)
+====================================Received batch: 15 ================================
+Last time in this batch:  2015-12-01 14:10:00
+The number of arrivals to Goldman Sachs has doubled from 3 to 12 at 1448953200!
+====================================Received batch: 16 ================================
+Last time in this batch:  2015-12-01 15:10:00
+====================================Received batch: 17 ================================
+Last time in this batch:  2015-12-01 16:10:00
+====================================Received batch: 18 ================================
+Last time in this batch:  2015-12-01 17:10:00
+====================================Received batch: 19 ================================
+Last time in this batch:  2015-12-01 18:10:00
+====================================Received batch: 20 ================================
+Last time in this batch:  2015-12-01 19:10:00
+====================================Received batch: 21 ================================
+Last time in this batch:  2015-12-01 20:10:00
+24/06/04 21:33:08 WARN Utils: Your hostname, KimTrinhPC resolves to a loopback address: 127.0.1.1; using 172.30.241.155 instead (on interface eth0)
+24/06/04 21:33:08 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+24/06/04 21:33:10 INFO SparkContext: Running Spark version 3.5.1
+24/06/04 21:33:10 INFO SparkContext: OS info Linux, 5.15.146.1-microsoft-standard-WSL2, amd64
+24/06/04 21:33:10 INFO SparkContext: Java version 1.8.0_402
+24/06/04 21:33:10 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/06/04 21:33:10 INFO ResourceUtils: ==============================================================
+24/06/04 21:33:10 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/06/04 21:33:10 INFO ResourceUtils: ==============================================================
+24/06/04 21:33:10 INFO SparkContext: Submitted application: Trending Arrivals
+24/06/04 21:33:10 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/06/04 21:33:10 INFO ResourceProfile: Limiting resource is cpu
+24/06/04 21:33:10 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/06/04 21:33:10 INFO SecurityManager: Changing view acls to: s21120580
+24/06/04 21:33:10 INFO SecurityManager: Changing modify acls to: s21120580
+24/06/04 21:33:10 INFO SecurityManager: Changing view acls groups to: 
+24/06/04 21:33:10 INFO SecurityManager: Changing modify acls groups to: 
+24/06/04 21:33:10 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: s21120580; groups with view permissions: EMPTY; users with modify permissions: s21120580; groups with modify permissions: EMPTY
+24/06/04 21:33:11 INFO Utils: Successfully started service 'sparkDriver' on port 40563.
+24/06/04 21:33:11 INFO SparkEnv: Registering MapOutputTracker
+24/06/04 21:33:11 INFO SparkEnv: Registering BlockManagerMaster
+24/06/04 21:33:11 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/06/04 21:33:11 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/06/04 21:33:11 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/06/04 21:33:11 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-8535394d-d247-4947-9f26-1e926c0465c3
+24/06/04 21:33:11 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
+24/06/04 21:33:11 INFO SparkEnv: Registering OutputCommitCoordinator
+24/06/04 21:33:11 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/06/04 21:33:11 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/06/04 21:33:11 INFO Executor: Starting executor ID driver on host 172.30.241.155
+24/06/04 21:33:11 INFO Executor: OS info Linux, 5.15.146.1-microsoft-standard-WSL2, amd64
+24/06/04 21:33:11 INFO Executor: Java version 1.8.0_402
+24/06/04 21:33:11 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+24/06/04 21:33:11 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@1f1f8a1a for default.
+24/06/04 21:33:11 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38349.
+24/06/04 21:33:11 INFO NettyBlockTransferService: Server created on 172.30.241.155:38349
+24/06/04 21:33:11 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/06/04 21:33:11 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 172.30.241.155, 38349, None)
+24/06/04 21:33:11 INFO BlockManagerMasterEndpoint: Registering block manager 172.30.241.155:38349 with 366.3 MiB RAM, BlockManagerId(driver, 172.30.241.155, 38349, None)
+24/06/04 21:33:11 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 172.30.241.155, 38349, None)
+24/06/04 21:33:11 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 172.30.241.155, 38349, None)
+====================================Received batch: 22 ================================
+Last time in this batch:  2015-12-01 21:10:00
+====================================Received batch: 23 ================================
+Last time in this batch:  2015-12-01 22:10:00
+====================================Received batch: 24 ================================
+Last time in this batch:  2015-12-01 23:10:00
+====================================Received batch: 25 ================================
+Last time in this batch:  2015-12-01 23:50:00
