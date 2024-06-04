@@ -56,10 +56,6 @@ class TrendingArrivals(StreamingSimulator):
                     (col("is_trend") == False)
                 )
 
-                # # Print new trends
-                # if new_trends.count() >= 1:
-                #     new_trends.show(truncate=False)
-                # Print new trends
                 if new_trends.count() >= 1:
                     for row in new_trends.collect():
                         initial_count = row[count_col] / row["count_ratio"]
@@ -77,23 +73,25 @@ class TrendingArrivals(StreamingSimulator):
                 ).otherwise(col("is_trend")))
 
                 # Update the previous batch attribute with the current batch
-                if previous_batch_attr is not None:
-                    batch_attr = getattr(self, previous_batch_attr)
-                    if batch_attr is not None:
-                        batch_attr.unpersist()
-                        setattr(self, previous_batch_attr, None)
+                setattr(self, previous_batch_attr, df)
 
-            # for time in time_intervals:
-            #     timestamp = datetime.fromtimestamp(time)
-            #     filename = output_path + "part-" + str(timestamp)
-            #     current_count = df.filter(col("time") == time).select(F.sum(col(count_col))).collect()[0][0]
-            #     previous_count = df.filter(col("time") == time - 600).select(F.sum(col(count_col))).collect()[0][0] if time - 600 in time_intervals else 0
-            #     with open(filename, "a") as file:
-            #         if previous_count is None:
-            #             previous_count = 0
-            #         if current_count is None:
-            #             current_count = 0
-            #         file.write(f"({city_name}, ({current_count}, {timestamp}, {previous_count}))\n")
+            for time in time_intervals:
+                # timestamp = datetime.fromtimestamp(time)
+                timestamp = time
+
+                directory = output_path + "part-" + str(timestamp)
+                filename = directory + "/" + city_name
+                # Tạo thư mục nếu chưa tồn tại
+                os.makedirs(directory, exist_ok=True)
+                
+                current_count = df.filter(col("time") == time).select(F.sum(col(count_col))).collect()[0][0]
+                previous_count = df.filter(col("time") == time - 600).select(F.sum(col(count_col))).collect()[0][0] 
+                with open(filename, "a") as file:
+                    if previous_count is None:
+                        previous_count = 0
+                    if current_count is None:
+                        current_count = 0
+                    file.write(f"({city_name}, ({current_count}, {timestamp}, {previous_count}))\n")
 
         
         # Process data for Goldman Sachs and Citigroup
@@ -101,6 +99,7 @@ class TrendingArrivals(StreamingSimulator):
         if goldman_df is not None:
             goldman_df.unpersist()
         process_data(citigroup_df, self.previous_citigroup_batch, "citigroup_count", "previous_citigroup_batch", "citigroup")
+        
         if citigroup_df is not None:
             citigroup_df.unpersist()
         del time_intervals
@@ -165,6 +164,7 @@ class TrendingArrivals(StreamingSimulator):
             processed_counts
             .writeStream
             .outputMode("append")
+            .option("checkpointLocation", checkpoint_path)
             .foreachBatch(self.foreach_batch_function)
             .start()
         )
@@ -194,7 +194,7 @@ if __name__ == "__main__":
         hadoop_home="/home/s21120580/hadoop-3.3.6",
         app_name="Trending Arrivals",
         config_option="some-value",
-        shuffle_partitions="2",
+        shuffle_partitions="1",
         input_folder=input_path,
         max_files_per_trigger=60,
     )
