@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from os.path import expanduser
+from pathlib import Path
 
 from pyspark.sql import  functions as F
 from Task_1_StreamSimulator import StreamingSimulator
@@ -47,7 +48,10 @@ class RegionEventCount(StreamingSimulator):
         start_hour = df.select('window_start').collect()[0][0].split(' ')[1].split(':')[0]
         start_hour = (int(start_hour) + 1) * 360000
         df.persist()
-        df.select('headquarter', 'count').write.mode('overwrite').format('csv').save(f'task_3_output/output-{start_hour}')
+        Path(f'task_3_output/output-{start_hour}').mkdir(parents = True, exist_ok = True)
+        with open(f'task_3_output/output-{start_hour}/output', 'w') as f:
+            for row in df.collect():
+                f.write(f'({row[0]}, {row[1]})\n')
         df.unpersist()
 
     def query(self, streamingInputDF):
