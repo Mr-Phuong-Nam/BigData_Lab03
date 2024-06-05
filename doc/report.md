@@ -77,13 +77,13 @@ Phần còn lại của chương trình tương tự như [EventCount](#3-chươ
 <image src='./images/Phuc/1.png' width='500'>
 
 ## 5. Chương trình TrendingArrivals.py
-Ý tưởng thực hiện: tương tự task 3, với mỗi batch dữ liệu (maximum 60 files), ta sẽ thống kê số khách đến tại mỗi vùng ở mỗi khoảng thời gian dài 10 phút, ví dụ như sau:
+Ý tưởng thực hiện: tương tự task 3, với mỗi batch dữ liệu, ta sẽ thống kê số khách đến tại mỗi vùng ở mỗi khoảng thời gian dài 10 phút, ví dụ như sau:
 <image src="./images/trinh/1.png" width="700">
 Tiếp theo, ta sẽ thực hiện các bước xử lí để tìm ra khoảng thời gian "điểm đến đang hot".
 - Ta tạo mảng time_interval để chứa tất cả các giá trị thời gian có trong batch hiện tại
 - Do áp dụng watermark là 30 mins nên có thể sẽ có dữ liệu đến trễ, ta cần lưu lại dữ liệu của batch trước (khoảng 1 giờ trước đó) để theo dõi giá trị mới đến và cập nhật (dùng biến self.previous_batch) và dùng thêm biến is_print để hỗ trợ (nếu khoảng thời gian này trước đó đã là trends và được in ra thì bây giờ không cần in ra nữa)
 - Lọc dữ liệu ra 2 dataframe goldman_df và citigroup_df kết hợp với dữ liệu của batch trước, sắp xếp các giá trị theo thứ tự tăng dần của thời gian, ta sẽ được dataframe tương tự như sau
-- Với mỗi dataframe, tạo tạo thêm cột count_ratio (tỉ lệ total_count dòng trước - tỉ lệ total_count dòng sau), time_diff (time dòng trước trừ time dòng sau) và is_trend (giá trị mặc định là False, sẽ giải thích sau).
+- Với mỗi dataframe, tạo tạo thêm cột count_ratio (tỉ lệ total_count dòng trước - tỉ lệ total_count dòng sau), time_diff (time dòng trước trừ time dòng sau) và is_trend (giá trị mặc định là False, sẽ giải thích sau). Ví dụ minh họa:
 <image src="./images/trinh/2.png" width="700">
 
 - Khoảng thời gian "trends" là dòng có time_dff là 600 và total_count >= 10 và count_ratio >= 2. In ra các khoảng thời gian này kèm thông tin và đánh dấu is_print = True, ví dụ như dưới đây:
@@ -101,7 +101,7 @@ Kết quả đạt được:
 <image src="./images/trinh/8.png" width="700">
 - output.log:
 <image src="./images/trinh/9.png" width="700">
-Citygroup không có khoảng thời gian nào đủ điều kiện để đáp ứng "trending"
+Goldman không có khoảng thời gian nào đủ điều kiện để đáp ứng "trending"
 
 
 Những gì chưa làm được: chương trình ghi file thường bị ngắt đột ngột, nhưng có thể chạy tiếp tục nhờ checkpoint. vì vậy, việc ghi lại dữ liệu in ra từ console phải thực hiện bằng mode append (spark-submit Task_4_TrendingArrivals.py --input ../taxi-data --checkpoint checkpoint --output task_4_output/ &>> output.log) thay vì overwrite như yêu cầu của đề
