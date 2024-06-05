@@ -6,6 +6,7 @@ from pyspark.sql.functions import *
 from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 import argparse
+from shapely.geometry import Point, Polygon
 
 class TrendingArrivals(StreamingSimulator):
     def __init__(self, *args, **kwargs):
@@ -51,26 +52,42 @@ class TrendingArrivals(StreamingSimulator):
                 df = df.withColumn("time_diff", col("time") - lag("time", 1).over(window_spec))
                 df = df.withColumn("count_ratio", col(count_col) / lag(count_col, 1).over(window_spec))
 
+                df = df.groupBy("time").agg(#handle duplicate time
+                    F.sum(count_col).alias(count_col),
+                    F.first("headquarter").alias("headquarter"),
+                    # F.first("time").alias("time"),
+                    F.first("is_print").alias("is_print"),
+                    # Adding more aggregation columns
+                    F.first("time_diff").alias("time_diff"),
+                    F.first("count_ratio").alias("count_ratio"),
+                    F.first("window").alias("window")
+                )
+
+                #sắp xếp lại: window, headquater, col_count, time, is_print, time_diff, count_ratio
+                df = df.select("window", "headquarter", count_col, "time", "is_print", "time_diff", "count_ratio")
+
                 # Identify rows that meet trend criteria and have not been marked as trends yet
                 new_trends = df.filter(
                     (col("time_diff") == 600) &
-                    (col(count_col) > 10) &
+                    (col(count_col) >= 10) &
                     (col("count_ratio") >= 2) &
                     (col("is_print") == False)
                 )
 
                 if new_trends is not None and new_trends.count() >= 1:
+                    df.show(truncate=False)
                     for row in new_trends.collect():
                         initial_count = row[count_col] / row["count_ratio"]
                         new_count = row[count_col]
                         timestamp =  row["time"]  # or the appropriate column name for the timestamp
-                        print(f"The number of arrivals to Goldman Sachs has doubled from {int(initial_count)} to {int(new_count)} at {timestamp}!")
+                        city = row['headquarter']
+                        print(f"The number of arrivals to {city} has doubled from {int(initial_count)} to {int(new_count)} at {timestamp}!")
 
 
                 # Mark these rows as trends
                 df = df.withColumn("is_print", when(
                     (col("time_diff") == 600) &
-                    (col(count_col) > 10) &
+                    (col(count_col) >= 10) &
                     (col("count_ratio") >= 2),
                     True
                 ).otherwise(col("is_print")))
@@ -93,7 +110,7 @@ class TrendingArrivals(StreamingSimulator):
                 previous_count_row = df.filter(col("time") == time - 600).select(F.sum(col(count_col))).collect()
                 previous_count = previous_count_row[0][0] if previous_count_row else None
 
-                with open(filename, "a") as file:
+                with open(filename, "w") as file:
                     if previous_count is None:
                         previous_count = 0
                     if current_count is None:
@@ -109,6 +126,7 @@ class TrendingArrivals(StreamingSimulator):
         
         if citigroup_df is not None:
             citigroup_df.unpersist()
+
         del time_intervals
 
     def query(self, streamingInputDF):
@@ -117,12 +135,11 @@ class TrendingArrivals(StreamingSimulator):
 
         def is_within_bounds(longitude, latitude, bounds):
             try:
-                longitude = float(longitude)
-                latitude = float(latitude)
+                point = Point(float(longitude), float(latitude))
+                polygon = Polygon(bounds)
+                return polygon.contains(point)
             except ValueError:
                 return False
-
-            return bounds[0][0] <= longitude <= bounds[1][0] and bounds[2][1] <= latitude <= bounds[0][1]
 
         def determine_headquarter(longitude, latitude):
             if is_within_bounds(longitude, latitude, goldman_bounds):
@@ -203,7 +220,7 @@ if __name__ == "__main__":
         config_option="some-value",
         shuffle_partitions="1",
         input_folder=input_path,
-        max_files_per_trigger=60,
+        max_files_per_trigger=120,
     )
     trending.setup_environment()
     trending.initialize_spark()
